@@ -18,3 +18,10 @@
     --foreground: #ededed;
   }
 }
+
+.mainContainer {
+  display: flex;
+  align-items: center;     
+  min-height: 100vh;    
+  flex-direction: column;   
+}
