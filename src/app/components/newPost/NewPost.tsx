@@ -1,11 +1,18 @@
+"use client";
 import styles from "./NewPost.module.css";
+import { useState } from "react";
+
 function NewPost() {
+const [text, setText] = useState("");
   return (
-    <form className={styles.form}>
+   <form className= {styles.form}>
       <p>
         <label htmlFor="body">Text</label>
-        <textarea id="body" required rows={3} />
+        <textarea onChange={(e)=>setText(e.target.value)} id="body" required rows={3} />
       </p>
+
+      <p>{text}</p>
+
       <p>
         <label htmlFor="name">Your name</label>
         <input type="text" id="name" required />
@@ -13,4 +20,5 @@ function NewPost() {
     </form>
   );
 }
+
 export default NewPost;
