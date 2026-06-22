@@ -1,21 +1,22 @@
 "use client";
+import { ChangeEvent } from "react";
 import styles from "./NewPost.module.css";
-import { useState } from "react";
+interface NewPostProps{
+onBodyChange: (e: ChangeEvent<HTMLTextAreaElement>)=>void;
+onAuthorChange:(e: ChangeEvent<HTMLInputElement>)=>void;
+}
 
-function NewPost() {
-const [text, setText] = useState("");
+function NewPost(props: NewPostProps) {
+
   return (
    <form className= {styles.form}>
       <p>
         <label htmlFor="body">Text</label>
-        <textarea onChange={(e)=>setText(e.target.value)} id="body" required rows={3} />
+        <textarea id="body" required rows={3} onChange={props.onBodyChange}/>
       </p>
-
-      <p>{text}</p>
-
       <p>
         <label htmlFor="name">Your name</label>
-        <input type="text" id="name" required />
+        <input type="text" id="name" required onChange={props.onAuthorChange}/>
       </p>
     </form>
   );
